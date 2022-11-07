@@ -1,6 +1,5 @@
 <!--components/playlist-popup/index.wxml-->
 <!-- 播放列表popup -->
-
 <van-popup show="{{ isShowPlaylistPopup }}" round position="bottom" custom-style="height: 60%; width: {{widthP}}%; left: {{leftP}}%;" bind:close="onPlaylistPopupClose">
   <view class="playlist">
     <view class="header">

@@ -1,4 +1,3 @@
-<!--pages/detail-songs/index.wxml-->
 <!--pages/detail-playlist/index.wxml-->
 <wxs src="/utils/format.wxs" module="format"></wxs>
 <view class="detail-playlist">
@@ -7,7 +6,6 @@
     <!-- 1.1模糊背景 -->
     <!-- <image class="bg" src="{{playlist.coverImgUrl}}" mode="widthFix" /> -->
     <image class="bg" src="{{playlist.coverImgUrl}}"  />
-
     <!-- 1.2左侧的歌单coverImg -->
     <view class="coverImg">
       <image class="image" src="{{playlist.coverImgUrl}}" mode="widthFix"></image>

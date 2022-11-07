@@ -66,9 +66,9 @@ Page({
             url: '/pages/detail-video/index?id=' + id,
         })
          // 查看是否正在播放歌曲
-    if (playerStore.state.songPlayState) {
-      playerStore.dispatch("changePlayStateAction");
-    }
+        if (playerStore.state.songPlayState) {
+          playerStore.dispatch("changePlayStateAction");
+        }
     }
 
 

@@ -29,6 +29,7 @@ Component({
     onPlayBtnClick() {
       // 第一次点播放按钮时 需要先将歌曲放在播放器上
       playerStore.dispatch("changePlayStateAction");
+      console.log("111")
     },
     onPlayBarClick() {
       wx.navigateTo({

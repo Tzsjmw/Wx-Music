@@ -2,12 +2,7 @@
 <view class="play-bar" style="padding-bottom: {{safeAreaInsetBottom ? 20 : 0}}px;">
   <view class="album-cover" bindtap="onPlayBarClick">
     <view class="album-border" style="animation-play-state: {{isPlay ? 'running' : 'paused'}};">
-      <!-- <image src="{{currentSong.al.picUrl ==''?currentSong.al.picUrl:playimg}}" 
-                  class="albumPic" 
-                  mode="widthFix"
-                  ></image> -->
         <image src="{{currentSong.al.picUrl ==null ?playimg:  currentSong.al.picUrl}}" 
-
                   class="albumPic" 
                   mode="widthFix"
                   ></image>            

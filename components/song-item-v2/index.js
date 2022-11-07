@@ -1,5 +1,7 @@
 // components/song-item-v2/index.js
 import { playerStore } from "../../store/index";
+
+
 Component({
   /**
    * 组件的属性列表
@@ -49,7 +51,12 @@ Component({
         url: `/pages/detail-video/index?id=${
           this.data.song[this.properties._mvid]
         }`,
+        
       });
+      // 查看是否正在播放歌曲
+      if (playerStore.state.songPlayState) {
+        playerStore.dispatch("changePlayStateAction");
+      }
     },
     // 点击更多按钮 eclipse
     moreActionBtnClick(event) {

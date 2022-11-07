@@ -39,7 +39,6 @@ const playerStore = new HYEventStore({
     // 改变当前音乐. {歌曲id， 是否改变当前音乐后立刻播放（页面首次加载不要立即播放）}
     async getPlayMusicWithSongIdAction(ctx, { id, isFirst = false }) {
       if (ctx.id === id) return; // 点击正在播放的歌曲song-item-v1
-
       ctx.id = id;
       // 两个都有值再进行下一步
       const resArr = await Promise.all([getMusicDetail(id), getMusicLyric(id)]);
@@ -278,5 +277,7 @@ const playerStore = new HYEventStore({
     changeVolume(ctx, { volume }) {},
   },
 });
+
+
 
 export { audioContext, playerStore };
