@@ -1,0 +1,27 @@
+/* components/song-menu-area/index.wxss */
+/* scrollbar {
+  display: none;
+} */
+.song-playlist-area {
+  margin: 30rpx 0;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.song-playlist-area .menu-content {
+  /* 保证从左侧边缘出来 */
+  width: 100%;
+  height: 300rpx;
+}
+.song-playlist-area .menu-content .menu-list {
+  display: flex;
+  /* 保证不能滑动后两侧元素还能里边缘有空隙 */
+  /* box-sizing: border-box; */
+  /* padding-right: 28rpx; */
+  height: 300rpx;
+}
+
+.song-playlist-area .menu-content .menu-list .playlist {
+  width: 200rpx;
+  margin-right: 20rpx;
+}

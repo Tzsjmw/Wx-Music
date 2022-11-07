@@ -1,0 +1,74 @@
+<!--pages/detail-songs/index.wxml-->
+<!--pages/detail-playlist/index.wxml-->
+<wxs src="/utils/format.wxs" module="format"></wxs>
+<view class="detail-playlist">
+  <!-- 1.头部 -->
+  <view class="header">
+    <!-- 1.1模糊背景 -->
+    <!-- <image class="bg" src="{{playlist.coverImgUrl}}" mode="widthFix" /> -->
+    <image class="bg" src="{{playlist.coverImgUrl}}"  />
+
+    <!-- 1.2左侧的歌单coverImg -->
+    <view class="coverImg">
+      <image class="image" src="{{playlist.coverImgUrl}}" mode="widthFix"></image>
+      <view class="playCount">
+        <van-icon name="play" />{{format.formatCount(playlist.playCount)}}
+      </view>
+    </view>
+    <!-- 1.3右侧的歌单信息 -->
+    <view class="info">
+      <text class="title">{{playlist.name}}</text>
+      <view class="creator">
+        <image src="{{playlist.creator.avatarUrl}}" mode="widthFix" />
+        <text>{{playlist.creator.nickname}}</text>
+      </view>
+      <view class="description">{{playlist.description}}</view>
+    </view>
+  </view>
+  <!-- 2.展示收藏、评论、分享个数 -->
+  <view class="subsCommShare"   wx:if="{{playlistTracks.length>0}}">
+    <view class="subscribedCount">
+      <van-icon name="add-o" size="42rpx" /><text>{{format.formatCount(playlist.subscribedCount)}}</text>
+    </view>|
+    <view class="commentCount">
+      <van-icon name="chat-o" size="42rpx" /><text>{{format.formatCount(playlist.commentCount)}}</text>
+    </view>|
+    <view class="shareCount">
+      <van-icon name="share-o" size="42rpx" /><text>{{format.formatCount(playlist.shareCount)}}</text>
+    </view>
+  </view>
+  <!-- 3.歌曲展示 -->
+  <view class="songs">
+    <block wx:for="{{playlistTracks}}" wx:key="this">
+      <song-item-v2 song="{{item}}" orderNum="{{index}}" _artists="ar" _mvid="mv" _album="al" bind:onMoreActionBtnClick="onMoreActionBtnClick" bind:changeCurrentPlaylist="changeCurrentPlaylist"></song-item-v2>
+    </block>
+  </view>
+</view>
+<!-- 4.功能弹窗 -->
+<van-action-sheet show="{{ isShowMoreAction }}" actions="{{ moreActions }}" bind:close="onMoreActionClose" bind:select="onMoreActionSelect" />
+<play-bar></play-bar>
+
+
+
+<!-- 基本列表排序 -->
+  <!-- <view class="songs">
+    <block wx:for="{{playlistTracks}}" wx:key="this">
+      <view class="song">
+        <text class="orderNum">{{index + 1}}</text>
+        <view class="songInfo">
+          <text class="songName">{{item.name}}</text>
+          <view class="singers">
+            <block wx:for="{{item.ar}}" wx:for-item="artistItem" wx:key="id">
+              <text wx:if="{{item.ar[item.ar.length - 1] === artistItem}}">{{artistItem.name}}</text>
+              <text wx:else>{{artistItem.name}} /</text>
+            </block>
+            · {{item.al.name}}
+          </view>
+        </view>
+        <view class="tail">
+          <van-icon wx:if="{{item.mv}}" name="play-circle-o" size="42rpx" class="mvBtn" bindtap="mvBtnClick" data-mvid="{{item.mv}}" />
+          <van-icon name="ellipsis" size="42rpx" class="moreAction" bindtap="moreActionBtnClick" data-song-id="{{item.id}}"></van-icon>
+        </view>
+      </view>
+    </block>
+  </view> -->

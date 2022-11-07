@@ -1,0 +1,45 @@
+<!--pages/detail-search/index.wxml-->
+<!-- 1.搜索框 -->
+<van-search shape="round" focus="{{true}}" use-action-slot placeholder="{{searchDefaultWord}}" value="{{inputedSearchKeyWord}}" bind:change="onSearchWordsChange" bind:search="onSearchBtnClick" bind:focus="onSearchFocus" class="vsearch" background="#fafafa" >
+  <view slot="action" class="searchAction" bind:tap="onSearchBtnClick">搜索</view>
+</van-search>
+<!-- 2.搜索联想 -->
+<view class="searchSuggest" wx:if="{{inputedSearchKeyWord.length > 0}}">
+  <view class="firstLine">
+    搜索"{{inputedSearchKeyWord}}"
+  </view>
+  <!-- 搜索结果 -->
+  <view class="searchItems" wx:if="{{inputedSearchKeyWord.length > 0}}">
+    <block wx:for="{{searchSuggestNodes}}" wx:key="index">
+      <view class="suggestItem" bind:tap="onSuggestItemClick" data-index="{{index}}">
+        <van-icon name="search" />
+        <rich-text nodes="{{item}}"></rich-text>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 3.热门搜索 -->
+<view class="hotWords" wx:if="{{inputedSearchKeyWord.length <= 0 && searchSongsResult.length <= 0}}">
+  <view class="title">热门搜索</view>
+  <block wx:for="{{hotWords}}" wx:key="this">
+    <view class="item" bind:tap="onHotsWordsItemClick" data-index="{{['hot',index]}}">{{item.first}}</view>
+  </block>
+</view>
+<!-- 4.搜索历史 -->
+<view class="searchHistory" wx:if="{{searchHistoryWords.length > 0 && searchSongsResult.length <= 0}}">
+  <view class="title">搜索历史</view>
+  <block wx:for="{{searchHistoryWords}}" wx:key="this">
+    <view class="item" bind:tap="onHotsWordsItemClick" data-index="{{['search',index]}}">{{item}}</view>
+  </block>
+</view>
+<!-- 5.搜索结果 -->
+<view class="songs" >
+  <block wx:for="{{searchSongsResult}}" wx:key="this">
+    <view class="song">
+      <song-item-v2 song="{{item}}" bind:onMoreActionBtnClick="onMoreActionBtnClick"></song-item-v2>
+    </view>
+  </block>
+</view>
+<!-- 6.功能弹窗 -->
+<van-action-sheet show="{{ isShowMoreAction }}" actions="{{ moreActions }}" bind:close="onMoreActionClose" bind:select="onMoreActionSelect" />
+<play-bar></play-bar>

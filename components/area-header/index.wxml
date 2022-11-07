@@ -1,0 +1,15 @@
+<!--components/area-header/index.wxml-->
+<view class="header-box">
+  <text class="title">{{title}}</text>
+  <view class="right" bindtap="moreClick">
+    <!-- 给header有传内容的话下面的 class="default"就不会显示 -->
+    <view class="slot">
+      <slot></slot>
+    </view>
+    
+    <view class="default"  wx:if="{{showMore}}">
+      <text class="more">更多</text>
+      <image class="icon" src="/assets/images/icons/arrow-right.png"></image>
+    </view>
+  </view>
+</view>

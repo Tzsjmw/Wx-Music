@@ -1,0 +1,130 @@
+/* pages/detail-playlist/index.wxss */
+page {
+  padding: 0 0 88rpx;
+}
+.detail-playlist {
+  width: 100%;
+}
+/* 1.头部 */
+.detail-playlist .header {
+  position: relative;
+  width: 100%;
+  height: 300rpx;
+  padding-left: 20rpx;
+  padding-top: 30rpx;
+}
+
+/* .detail-playlist .header .bg {
+  position: absolute;
+  top: 50rpx;
+  left: 50%;
+  width: 300rpx;
+  transform: translate(-50%) scale(2.6);
+  filter: blur(30rpx);
+  z-index: -999;
+} */
+ .bg {
+  position: absolute;
+  height: 100%;
+  filter: blur(30rpx);
+  z-index: -999;
+}
+
+
+/* 1.2左侧的歌单coverImg */
+.detail-playlist .header .coverImg {
+  position: relative;
+  float: left;
+  width: 30%;
+}
+.detail-playlist .header .coverImg .image {
+  width: 100%;
+  border-radius: 20rpx;
+}
+.detail-playlist .header .coverImg .playCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 24rpx;
+}
+/* 
+1.3右侧的歌单信息
+ */
+.detail-playlist .header .info {
+  float: left;
+  width: 60%;
+  padding: 0 25rpx;
+}
+
+.detail-playlist .header .title {
+  color: #fff;
+}
+
+.detail-playlist .header .info .creator {
+  width: 100%;
+  color: #bebbbc;
+  font-size: 24rpx;
+  padding: 50rpx 0 20rpx;
+}
+.detail-playlist .header .info .creator image {
+  width: 50rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.detail-playlist .header .info .description {
+  width: 100%;
+  height: 125rpx;
+  font-size: 22rpx;
+  color: #f0f0ef;
+  overflow: hidden;
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+/* 2.展示收藏、评论、分享个数 */
+.subsCommShare {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: text-top;
+  width: 500rpx;
+  height: 80rpx;
+  font-size: 24rpx;
+  line-height: 80rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 500rpx;
+  box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(0, 0, 0, 0.3);
+  padding: 0 30rpx;
+}
+.van-icon-add-o {
+  position: absolute;
+  top: 5rpx;
+  left: 0;
+  margin-right: 5rpx;
+}
+.van-icon-chat-o {
+  position: absolute;
+  top: 5rpx;
+  left: 0;
+  margin-right: 5rpx;
+}
+.van-icon-share-o {
+  position: absolute;
+  top: 5rpx;
+  left: 0;
+  margin-right: 5rpx;
+}
+/* 3.歌曲展示 */
+.songs {
+  width: 100%;
+  padding: 50rpx 20rpx 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: -50rpx;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}

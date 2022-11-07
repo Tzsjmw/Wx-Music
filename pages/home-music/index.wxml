@@ -1,0 +1,63 @@
+<!--pages/home-music/index.wxml-->
+<!-- 轮播图 -->
+<van-search background="#fafafa" 
+            shape="round" 
+            placeholder="搜索歌曲" 
+            disabled 
+            bind:click-input="handleSearchClick"
+            >
+</van-search>
+
+<!-- 轮播图 -->
+<swiper class="swiper" 
+        indicator-dots 
+        autoplay 
+        circular
+        indicator-active-color="#FFFFFF"
+        style="height: {{ swiperHeight}}px;"
+        wx:if="arr.length>0">
+  <block wx:for="{{banners}}" wx:key="bannerId">
+    <swiper-item class="swiper-item">
+      <image src="{{item.pic}}" class="swiper-image" mode="widthFix"  bindload="onSwiperImageLoaded"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 热门歌曲 -->
+<view class="hitSong">
+  <area-header title="热门歌曲" 
+               class="header" 
+               jumpTo="{{['detail-playlist', 3778678]}}"
+               wx:if="{{hitSongsTop6.length>0}}"></area-header>
+  <view class="hitSongList">
+    <block wx:for="{{hitSongsTop6}}" wx:key="id">
+      <song-item-v1 item="{{item}}" orderNum="{{index}}" bind:changeCurrentPlaylist="changeCurrentPlaylist"></song-item-v1>
+    </block>
+  </view>
+</view>
+
+<!-- 热门歌单 -->
+<song-menu-area title="热门歌单" 
+                playLists="{{hitPlayLists}}"
+                wx:if="{{hitPlayLists.length>0}}"
+                ></song-menu-area>
+<song-menu-area title="华语歌单" 
+                playLists="{{mandarinPlayLists}}"
+                wx:if="{{mandarinPlayLists.length>0}}"
+                ></song-menu-area>
+<song-menu-area title="古风歌单" 
+                playLists="{{ancientPlayLists}}"
+                wx:if="{{ancientPlayLists.length>0}}"
+                ></song-menu-area>
+<song-menu-area title="欧美歌单" 
+                playLists="{{westernPlayLists}}"
+                wx:if="{{westernPlayLists.length>0}}"
+                ></song-menu-area>
+
+<!-- 巅峰榜单 -->
+<rankings-area rankings="{{ homeMusicRankings }}"
+               wx:if="{{homeMusicRankings.length>0}}"
+              ></rankings-area>
+<!-- 底部播放条 -->
+<play-bar safeAreaInsetBottom="{{false}}"></play-bar>
+<playlist-popup></playlist-popup>

@@ -1,0 +1,29 @@
+/* components/area-header/index.wxss */
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0 10rpx 10rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+/* 当.slot为empty时，执行里面的样式 */
+/* + default的意思是 在前面的条件成立时给.default加下样式 */
+.right .slot:empty + .default {
+  display: block;
+}
+
+.right .default {
+  /* default默认是不显示。没有使用插槽再显示 */
+  display: none;
+  font-size: 28rpx;
+  color: gray;
+}
+.right .default .icon {
+  width: 46rpx;
+  height: 46rpx;
+  vertical-align: -30%;
+}

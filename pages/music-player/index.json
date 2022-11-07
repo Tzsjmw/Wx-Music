@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "nav-bar": "/baseUI/nav-bar",
+    "artists-name": "/baseUI/artists-name",
+    "playlist-popup": "/components/playlist-popup/index",
+    "van-notify": "@vant/weapp/notify/index"
+  },
+  "navigationStyle": "custom"
+}

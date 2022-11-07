@@ -1,0 +1,9 @@
+<!--components/song-menu-area-item/index.wxml-->
+<!-- 点开歌单展示歌曲 -->
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<view class="song-playlist-area-item" bindtap="itemClick">
+  <image src="{{playListsItem.coverImgUrl}}" class="coverImg" mode="widthFix">
+    <text class="playCount">{{format.formatCount(playListsItem.playCount)}}</text>
+  </image>
+  <text class="name">{{playListsItem.name}}</text>
+</view>

@@ -1,0 +1,15 @@
+<!--components/video-item-v1/index.wxml-->
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<!-- 视频简介 -->
+<view class="item1">
+  <view class="album">
+    <image src="{{item.cover}}" mode="widthFix" class="image"></image>
+    <view class="info">
+      <view class="count">{{format.formatCount(item.playCount)}}</view>
+      <view class="duration">{{format.formatDuration(item.mv.videos[0].duration)}}</view>
+    </view>
+  </view>
+  <view class="content">
+    <view>{{item.name}} - {{item.artistName}}</view>
+  </view>
+</view>

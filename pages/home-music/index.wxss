@@ -1,0 +1,31 @@
+/* pages/home-music/index.wxss */
+
+
+page {
+  padding: 0 20rpx 88rpx;
+}
+
+/* 轮播图 */
+.swiper {
+  width: 100%;
+  height: 276.11rpx;
+  margin-top: 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  /* 在有些机型上对radius支持不太好，加上这条即可解决 */
+  transform: translateY(0);
+}
+
+.swiper .swiper-item .swiper-image {
+  width: 100%;
+}
+
+/* 歌曲推荐 */
+.hitSong {
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.hitSong .header {
+  margin-bottom: 300rpx;
+}

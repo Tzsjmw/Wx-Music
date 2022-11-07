@@ -1,0 +1,28 @@
+<!--components/song-item-v2/index.wxml-->
+<!-- 
+  细节
+  - 遍历一个对象 item.name 点出来的是这个对象里有的key。 item[name]是去自己this.data里面找name这个字符串
+ -->
+<!-- 在歌单里面展示歌曲时使用 -->
+<view class="song">
+  <text class="orderNum" wx:if="{{orderNum >= 0}}">{{orderNum + 1}}</text>
+  <view class="songInfo" bindtap="onSongClick">
+    <text class="songName">{{song.name}}</text>
+    <view class="singers">
+      <!-- 歌唱家们 -->
+      <!-- <block wx:for="{{song[_artists]}}" wx:for-item="artistItem" wx:key="id">
+        <text wx:if="{{song[_artists][song[_artists].length - 1] === artistItem}}">{{artistItem.name}}</text>
+        <text wx:else>{{artistItem.name}} /</text>
+      </block> -->
+      <image src="/assets/images/icons/sq_icon.png" class="sqIcon" wx:if="{{song.sq}}" mode="widthFix"></image>
+      <image src="/assets/images/icons/vip_icon.png" class="vipIcon" wx:if="{{song.fee === 1}}" mode="widthFix"></image>
+      <artists-name artists="{{song[_artists]}}" divisor="" fontColor="#999"></artists-name>
+      <!-- 描述信息 -->
+      · {{song[_album].name}}
+    </view>
+  </view>
+  <view class="tail">
+    <van-icon wx:if="{{song[_mvid]}}" name="play-circle-o" size="42rpx" class="mvBtn" bindtap="mvBtnClick" />
+    <van-icon name="ellipsis" size="42rpx" class="moreAction" bindtap="moreActionBtnClick"></van-icon>
+  </view>
+</view>

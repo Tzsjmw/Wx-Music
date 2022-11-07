@@ -1,0 +1,12 @@
+<!--pages/home-video/index.wxml-->
+<!-- 渲染mv -->
+<view class="video">
+  <view wx:for="{{topMVs}}" wx:key="id" class="item">
+  <!-- mv详情 -->
+    <video-item-v1 item="{{item}}"
+                    bindtap="handleVideoItemClick"
+                    data-item="{{item}}">
+    </video-item-v1>
+  </view>
+</view>
+<play-bar safeAreaInsetBottom="{{false}}"></play-bar>

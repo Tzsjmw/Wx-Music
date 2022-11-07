@@ -1,0 +1,40 @@
+/* baseUI/nav-bar/index.wxss */
+.nav {
+  width: 100%;
+}
+/* 2. */
+.nav .nav-bar {
+  display: flex;
+  height: 80rpx;
+  
+}
+.nav .nav-bar .left,
+.nav .nav-bar .right {
+  padding-top: 10rpx;
+  width: 15%;
+  text-align: center;
+  line-height: 80rpx;
+}
+.nav .nav-bar .center {
+  flex: 1;
+  color: #ffffff;
+}
+.default-left,
+.default-center {
+  display: none;
+}
+.left-slot:empty + .default-left,
+.center-slot:empty + .default-center {
+  display: block;
+}
+/* .nav .nav-bar .left .left-slot:empty + .nav .nav-bar .left .default-left,
+.nav
+  .nav-bar
+  .center
+  .center-slot:empty
+  + .nav
+  .nav-bar
+  .center
+  .default-center {
+  display: block;
+} */

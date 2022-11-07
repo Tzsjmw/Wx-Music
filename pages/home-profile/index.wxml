@@ -1,0 +1,28 @@
+<!--pages/home-profile/index.wxml-->
+<view class="home-profile">
+  <view class="header" open-type="getUserInfo" bindtap="onAvatarClick">
+    <view class="avatar">
+      <image class="avatarImg" mode="widthFix" src="{{userInfo.avatarUrl==null ?profile:userInfo.avatarUrl}}"></image>
+      <image src=""></image>
+    </view>
+    <view class="userName">
+      <text>{{userInfo.nickName}}</text>
+      <view class="loginBtn" wx:if="{{!isLogin}}">点击以登录</view>
+    </view>
+  </view>
+  <view class="another">
+    <block wx:for="{{icons}}" wx:key="this">
+      <view class="item">
+        <image class="icon" src="/assets/images/profile/{{item.icon}}.png" mode="widthFix"></image>
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="desc">仅仅为了加入登录功能写的页面，登录会获取用户信息，但什么都不做。</view>
+  <!-- <view class="announce">
+    <text>小程序仅供参考学习@Rhett </text>
+    <text>感谢老师传道解惑https://github.com/coderwhy</text>
+    <text>感谢提供接口https://github.com/Binaryify</text>
+  </view> -->
+</view>
+<play-bar safeAreaInsetBottom="{{false}}"></play-bar>

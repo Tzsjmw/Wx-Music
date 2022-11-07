@@ -1,0 +1,17 @@
+<!--components/video-item-v2/index.wxml-->
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+
+<!-- 推荐视频 视频简介 -->
+<view class="item">
+  <view class="album">
+    <image class="image" src="{{item.coverUrl}}" mode="widthFix"></image>
+    <view class="info">
+      <view class="count">{{format.formatCount(item.playTime)}}</view>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class="name">{{item.title}}</view>
+    <view class="nickname">{{item.creator[0].userName}}</view>
+  </view>
+</view>

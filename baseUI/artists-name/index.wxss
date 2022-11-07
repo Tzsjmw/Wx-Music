@@ -1,0 +1,4 @@
+/* components/artists-name/index.wxss */
+.singers {
+  display: inline-block;
+}

@@ -1,0 +1,49 @@
+/* components/rankings-area/index.wxss */
+.ranking-area {
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.box {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  margin-bottom: 20rpx;
+  background-color: #f5f1f1;
+  border-radius: 20rpx;
+}
+.box .left {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 25rpx 0 25rpx 20rpx;
+}
+.box .left .itemTitle {
+  font-weight: 700;
+}
+.box .left .song {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
+.box .left .song .artist {
+  color: #999;
+}
+
+.box .right {
+  position: relative;
+  width: 30%;
+}
+.box .right .image {
+  float: right;
+  width: 100%;
+  /* margin-top: 15rpx; */
+}
+.box .right .playCount {
+  position: absolute;
+  right: 5rpx;
+  bottom: 15rpx;
+  color: #fff;
+  font-size: 24rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+  padding: 5rpx;
+}

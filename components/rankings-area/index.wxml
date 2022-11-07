@@ -1,0 +1,24 @@
+<!--components/rankings-area/index.wxml-->
+<wxs src="/utils/format.wxs" module="format"></wxs>
+<view class="ranking-area">
+  <area-header title="巅峰榜" showMore="{{false}}"></area-header>
+  <!-- 榜单 -->
+  <block wx:for="{{rankings}}" wx:key="this">
+    <view class="box" bindtap="itemClick" data-id="{{item.id}}">
+      <view class="left">
+        <!-- 标题 -->
+        <view class="itemTitle">{{item.rankingName}}</view>
+        <!-- songs -->
+        <block wx:for="{{item.songList}}" wx:for-item="song" wx:key="id">
+          <view class="song">
+            <text>{{index +1 }}. {{song.name}}</text><text class="artist"> - {{song.ar[0].name}}</text>
+          </view>
+        </block>
+      </view>
+      <view class="right">
+        <image src="{{item.rankingCoverImg}}" class="image" mode="widthFix" alt="" />
+        <view class="playCount">{{format.formatCount(item.playCount)}}</view>
+      </view>
+    </view>
+  </block>
+</view>

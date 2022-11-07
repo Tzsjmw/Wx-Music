@@ -1,0 +1,100 @@
+<!--pages/music-player/index.wxml-->
+<wxs src="/utils/format.wxs" module="format"></wxs>
+<!-- -1.页面背景 z-index: -999；（单独使用image标签四个边上有白边） -->
+<image src="{{currentSong.al.picUrl}}" mode="aspectFill" class="bg"></image>
+<view class="bg-cover"></view>
+<!-- 正真的页面开始 -->
+<view class="main">
+  <!-- 1.nav-bar -->
+  <nav-bar class="nav-bar" >
+    <!-- 歌曲名字与歌手名字 -->
+    <view slot="center" class="center">
+      <view class="music-name">{{currentSong.name}}</view>
+      <view class="artists">
+        <artists-name artists="{{currentSong.ar}}" fontColor="#fff" divisor=""></artists-name>
+      </view>
+    </view>
+  </nav-bar>
+  <!-- 2. 歌曲内容 -->
+  <view class="song-content">
+    <!-- 2.1 歌曲播放页 -->
+    <view class="CD-play" hidden="{{currentPage ? true : false}}" bindtap="shiftPage">
+      <!-- 2.1.1 cd转动 -->
+      <view class="album-pictrue" style="animation-play-state: {{songPlayState ? 'running' : 'paused'}};">
+        <image src="{{currentSong.al.picUrl}}" mode="widthFix"></image>
+      </view>
+      <!-- 2.1.2 歌词滚动 -->
+      <!-- 这里的歌词是能滑动查看的 -->
+      <view class="cd-lyrics-mask"></view>
+      <scroll-view class="cd-lyrics" scroll-y scroll-top="{{CDPageLyricItemHeight * currentIndexOfLyric1}}px" scroll-with-animation enable-flex enhanced show-scrollbar="{{false}}" bindtap="shiftPage">
+        <!-- .lyricTextDisplay限制展示区域 .textContent在里面滚动 -->
+        <view class="textContent" style="margin-top: {{CDPageLyricItemHeight}}px;">
+          <block wx:for="{{lyric}}" wx:key="index">
+            <text class="CDPageLyricItem {{currentIndexOfLyric === index ? 'activeLine' : ''}}">{{item.text}}</text>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 2.2 全屏歌词展示 -->
+    <view class="lyrics" hidden="{{currentPage ? false : true}}">
+      <!-- 微信小程序的hidden属性是简单的加在属性上面的。`view class="lyrics"`需要设置display：flex，与hidden的display：hidden冲突，所以多使用一个content包裹，避免hidden属性。 -->
+      <view class="content">
+        <!-- 2.2.1 音量控制 -->
+        <view class="volume" style="display: none;">
+          <van-icon name="volume" size="30rpx" />
+          <slider class="volumeSlider" value="{{volume * 100}}" step="1" backgroundColor="#5a595c" activeColor="#ec4141" block-size="12rpx" bindchange="onVolumeSliderChanged" bindchanging="onVolumeSliderChangging"></slider>
+        </view>
+        <!-- 2.2.2 歌词展示 -->
+        <scroll-view class="lyricTextDisplay" scroll-y scroll-top="{{lyricsPageLyricItemHeight * currentIndexOfLyric1}}px" scroll-with-animation enable-flex enhanced bindtap="shiftPage" binddragstart="onLyricTextDisplayDragStart" binddragend="onLyricTextDisplayDragEnd">
+          <!-- .lyricTextDisplay限制展示区域 .textContent在里面滚动 -->
+          <view class="textContent">
+            <block wx:for="{{lyric}}" wx:key="index">
+              <text class="lyricsPageLyricItem {{currentIndexOfLyric === index ? 'activeItem' : ''}}">{{item.text}}</text>
+            </block>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <!-- 3.player-action -->
+  <view class="player-action">
+    <slider class="slider" value="{{sliderValue}}" step="0.1" backgroundColor="#5a595c" activeColor="#fff" block-size="12rpx" bindchange="onProgressSliderChanged" bindchanging="onProgressSliderChanging"></slider>
+    <view class="duration">
+      <text class="nowTime">{{format.formatDuration(currentTime)}}</text>
+      <text class="totalTime">{{format.formatDuration(durationTime)}}</text>
+    </view>
+    <view class="operation">
+      <!-- 随机播放 -->
+      <image src="/assets/images/player/play_{{currentPlayMode}}.png" mode="widthFix" class="modeBtn" bindtap="onModeBtnClick"></image>
+      <!-- 上一首 -->
+      <image src="/assets/images/player/play_prev.png" mode="widthFix" class="prevBtn" bindtap="onPrevBtnClick"></image>
+      <!-- 暂停播放 -->
+      <image src="/assets/images/player/play_{{songPlayState ? 'pause': 'resume'}}.png" mode="widthFix" class="playBtn" bindtap="onPlayBtnClick"></image>
+      <!-- 下一首 -->
+      <image src="/assets/images/player/play_next.png" mode="widthFix" class="nextBtn" bindtap="onNextBtnClick"></image>
+      <!-- 列表 -->
+      <image src="/assets/images/player/play_list.png" mode="widthFix" class="listBtn" bindtap="onListBtnClick"></image>
+    </view>
+  </view>
+  <!-- 歌单列表pop-up -->
+  <!-- 考虑想vue一样放在App.vue里面，首页与歌曲播放页只要调用store的action即可打开关闭播放列表。 -->
+  <!-- 但是小程序没有类似App.vue一样的主页面 -->
+  <playlist-popup isShowPlaylistPopup="{{isShowPlaylistPopup}}" widthP="94" leftP="3" bind:onClose="onPlaylistPopupClose"></playlist-popup>
+</view>
+<van-notify id="van-notify" />
+<!-- 
+  废弃功能
+ -->
+<!-- 点击切换播放与歌词页 -->
+<!-- <view slot="center" class="tab">
+  <view class="{{activeTab === 0 ? 'activeTab' : ''}}">歌曲</view>
+  <view class="divider">|</view>
+  <view class="{{activeTab === 1 ? 'activeTab' : ''}}">歌词</view>
+</view> -->
+<!-- swiper -->
+<!-- <swiper class="content" bindchange="swiperItemChange">
+  <swiper-item>
+  </swiper-item>
+  <swiper-item>
+  </swiper-item>
+</swiper> -->

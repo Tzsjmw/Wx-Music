@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "artists-name": "/baseUI/artists-name/index"
+  }
+}

@@ -1,0 +1,10 @@
+<!--components/artists-name/index.wxml-->
+<!-- 传入一个数组 -->
+<view class="singers" style="color: {{fontColor}}; font-size: {{fontSize}}rpx;">
+  {{divisor}}
+  <block wx:for="{{artists}}" wx:key="id">
+    <!-- 判断是否是最后一个歌手 -->
+    <text wx:if="{{artists[artists.length - 1] === item}}">{{item.name}}</text>
+    <text wx:else>{{item.name}} /</text>
+  </block>
+</view>

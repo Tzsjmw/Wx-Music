@@ -1,0 +1,24 @@
+<!--components/playlist-popup/index.wxml-->
+<!-- 播放列表popup -->
+
+<van-popup show="{{ isShowPlaylistPopup }}" round position="bottom" custom-style="height: 60%; width: {{widthP}}%; left: {{leftP}}%;" bind:close="onPlaylistPopupClose">
+  <view class="playlist">
+    <view class="header">
+      <text class="first">当前播放<text class="songsCount">（{{currentPlaylistTracks.length}}）</text></text>
+      <text class="playMode">{{curerntPlayModeText}}</text>
+    </view>
+    <!-- 歌曲列表 -->
+    <scroll-view class="songs">
+      <block wx:for="{{currentPlaylistTracks}}" wx:key="this">
+        <!-- 歌曲 -->
+        <view class="item {{currentIndex === index ? 'activeItem' : '' }}">
+          <view class="left" bindtap="onSongClick" data-index="{{index}}">
+            <image src="/assets/images/icons/playing.png" wx:if="{{currentIndex === index }}" mode="widthFix"></image>
+            {{item.name}} <artists-name artists="{{item.ar}}" fontColor="{{currentIndex === index ? '#c7302f' : '#999'}}"></artists-name>
+          </view>
+          <view class="delete" bindtap="onDeletClick" data-index="{{index}}">×</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</van-popup>

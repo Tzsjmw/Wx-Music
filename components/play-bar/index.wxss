@@ -1,0 +1,69 @@
+/* components/play-bar/index.wxss */
+/* 动画 */
+@keyframes turnAround {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.play-bar {
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 88rpx;
+  font-size: 32rpx;
+  background-color: #fff;
+  box-shadow: -1rpx 0rpx 10rpx rgba(0, 0, 0, 0.3);
+}
+.play-bar .album-cover {
+  width: 15%;
+  height: 88rpx;
+  transition: all 0.5s;
+}
+.play-bar .album-cover .album-border {
+  animation: turnAround 30s linear infinite;
+  overflow: hidden;
+  position: absolute;
+  top: -20rpx;
+  left: 20rpx;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background-color: #999;
+  box-shadow: 1rpx 1rpx 10rpx rgba(0, 0, 0, 0.3);
+}
+.play-bar .album-cover .album-border .albumPic {
+  width: 100%;
+}
+.play-bar .song-info {
+  flex: 1;
+  height: 100%;
+  line-height: 88rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.play-bar .actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+/* .van-circle__canvas {
+  width: 50rpx !important;
+} */
+.play-bar .actions  .van-circle__canvas {
+  width: 50rpx !important;
+}
+.play-bar .actions .playBtn {
+  width: 50rpx;
+}
+.play-bar .actions .playlistBtn {
+  width: 60rpx;
+}

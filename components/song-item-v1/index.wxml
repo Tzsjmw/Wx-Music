@@ -1,0 +1,10 @@
+<!--components/song-item-v1/index.wxml-->
+<!-- 首页展示的携带封面的歌曲 -->
+<view class="content" bindtap="onSongClick">
+  <image class="image" src="{{item.al.picUrl}}"></image>
+  <view class="info">
+    <text class="songName">{{item.name}}</text>
+    <text class="singer">{{item.ar[0].name}} · {{item.al.name}}</text>
+  </view>
+  <image class="icon" src="/assets/images/icons/arrow-right.png"></image>
+</view>

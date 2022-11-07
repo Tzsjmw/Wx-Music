@@ -1,0 +1,195 @@
+/* pages/music-player/index.wxss */
+.bg,
+.bg-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999;
+}
+.bg-cover {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(30px);
+}
+/* 动画 */
+@keyframes turnAround {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* 正真的页面开始 */
+.main {
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* 1。导航栏 */
+.main .center {
+  /* display: flex;
+  flex-direction: column;
+  justify-song-content: space-between; */
+  width: 600rpx;
+  height: 80rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+.main .center .music-name {
+  overflow: hidden;
+  width: 100%;
+  height: 40rpx;
+  font-size: 30rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.main .center .artists {
+  overflow: hidden;
+  width: 100%;
+  height: 40rpx;
+  color: #cccccc;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* 2.歌曲内容 */
+.main .song-content {
+  /* 高度 flex: 1 */
+  flex: 1;
+  position: relative;
+  width: 100vw;
+}
+/* 2.1 播放音乐 */
+.main .song-content .CD-play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.main .song-content .CD-play .album-pictrue {
+  overflow: hidden;
+  animation: turnAround 30s linear infinite;
+  width: 500rpx;
+  margin: 10vh auto 0;
+}
+.main .song-content .CD-play .album-pictrue image {
+  width: 100%;
+  border-radius: 50%;
+}
+.main .song-content .CD-play .cd-lyrics-mask {
+  /* 完全是cd-lyrics的尺寸 */
+  position: absolute;
+  left: 0;
+  bottom: 2vh;
+  width: 100%;
+  height: 18vh;
+  z-index: 1;
+}
+.main .song-content .CD-play .cd-lyrics {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 2vh;
+  width: 100%;
+  height: 18vh;
+  font-size: 30rpx;
+  color: #928e8d;
+}
+.main .song-content .CD-play .cd-lyrics .textContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.main .song-content .CD-play .cd-lyrics .textContent .CDPageLyricItem {
+  height: 6vh;
+  line-height: 80rpx;
+}
+.main .song-content .CD-play .activeLine {
+  font-size: 38rpx;
+  color: #fff;
+}
+/* 2.2 歌词展示 */
+.main .song-content .lyrics {
+  position: absolute;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.main .song-content .lyrics .content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.main .song-content .lyrics .volume {
+  padding: 0 50rpx;
+  display: flex;
+}
+.main .song-content .lyrics .volume .volumeSlider {
+  flex: 1;
+}
+.main .song-content .lyrics .lyricTextDisplay {
+  overflow: hidden;
+  flex: 1;
+}
+.main .song-content .lyrics .lyricTextDisplay .textContent {
+  /* 这个负责滚动,写在行内样式里面 */
+  /* style="transform: translateY({{-lyricsPageLyricItemHeight * currentIndexOfLyric}}px);" */
+  transition: all 0.5s;
+  padding: 32vh 0;
+}
+.main
+  .song-content
+  .lyrics
+  .lyricTextDisplay
+  .textContent
+  .lyricsPageLyricItem {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  /* padding: 20rpx 0; */
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #928e8d;
+}
+.main .song-content .lyrics .lyricTextDisplay .textContent .activeItem {
+  color: #fff;
+}
+/* 3.player-action */
+.main .player-action {
+  width: 750rpx;
+  /* height: 18vh; */
+  padding-bottom: 2vh;
+}
+/* 3.1进度条 */
+.main .player-action .slider {
+  margin: 20rpx 36rpx 0;
+}
+.main .player-action .duration {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20rpx;
+  padding: 0 30rpx;
+}
+/* 3.2五个控制按钮区域 */
+.main .player-action .operation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main .player-action .operation image {
+  width: 60rpx;
+}
+.main .player-action .operation .playBtn {
+  width: 100rpx;
+}
+/* 3.3 playlist-popup 歌单弹窗 */
+.playlist-popup {
+  color: red;
+}

@@ -1,0 +1,61 @@
+.song {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+}
+/* 1.序号 */
+.song .orderNum {
+  width: 60rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #999;
+}
+/* 2.歌曲信息 */
+.song .songInfo {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.song .songInfo .songName {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.song .songInfo .singers {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.song .songInfo .singers .sqIcon,
+.song .songInfo .singers .vipIcon {
+  display: inline-block;
+  width: 30rpx;
+  margin-right: 5rpx;
+}
+/* 3.歌曲尾部功能 */
+.song .tail {
+  /* display: flex; */
+  width: 150rpx;
+  height: 100rpx;
+  /* background-color: pink; */
+  color: gray;
+  box-sizing: border-box;
+  padding-top: 30rpx;
+}
+.song .tail .mvBtn {
+  width: 50%;
+}
+.song .tail .moreAction {
+  float: right;
+  width: 50%;
+  transform: rotateZ(90deg);
+}

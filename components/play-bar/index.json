@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "artists-name": "/baseUI/artists-name/index",
+    "playlist-popup": "/components/playlist-popup/index"
+  }
+}

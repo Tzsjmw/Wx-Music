@@ -1,0 +1,10 @@
+<!--pages/more-playlist/index.wxml-->
+<view class="playlists">
+  <area-header title="{{title}}" showMore="{{fasle}}"></area-header>
+  <view class="container">
+    <block wx:for="{{playlists}}" wx:key="id">
+      <song-menu-area-item playListsItem="{{item}}" class="item"></song-menu-area-item>
+    </block>
+  </view>
+</view>
+<play-bar></play-bar>
