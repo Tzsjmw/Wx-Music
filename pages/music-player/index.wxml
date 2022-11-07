@@ -1,8 +1,12 @@
 <!--pages/music-player/index.wxml-->
 <wxs src="/utils/format.wxs" module="format"></wxs>
 <!-- -1.页面背景 z-index: -999；（单独使用image标签四个边上有白边） -->
-<image src="{{currentSong.al.picUrl}}" mode="aspectFill" class="bg"></image>
+<image src="{{currentSong.al.picUrl==null?playty:currentSong.al.picUrl}}" 
+       mode="aspectFill" 
+       class="bg"
+       ></image>
 <view class="bg-cover"></view>
+
 <!-- 正真的页面开始 -->
 <view class="main">
   <!-- 1.nav-bar -->

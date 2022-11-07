@@ -24,6 +24,6 @@
       </view>
     </view>
     <!-- 右边 -->
-    <view class="right">右边</view>
+    <view class="right"></view>
   </view>
 </view>

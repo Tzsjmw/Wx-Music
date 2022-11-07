@@ -10,10 +10,6 @@
     <text class="songName">{{song.name}}</text>
     <view class="singers">
       <!-- 歌唱家们 -->
-      <!-- <block wx:for="{{song[_artists]}}" wx:for-item="artistItem" wx:key="id">
-        <text wx:if="{{song[_artists][song[_artists].length - 1] === artistItem}}">{{artistItem.name}}</text>
-        <text wx:else>{{artistItem.name}} /</text>
-      </block> -->
       <image src="/assets/images/icons/sq_icon.png" class="sqIcon" wx:if="{{song.sq}}" mode="widthFix"></image>
       <image src="/assets/images/icons/vip_icon.png" class="vipIcon" wx:if="{{song.fee === 1}}" mode="widthFix"></image>
       <artists-name artists="{{song[_artists]}}" divisor="" fontColor="#999"></artists-name>

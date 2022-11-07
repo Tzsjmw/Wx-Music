@@ -9,8 +9,8 @@
   z-index: -999;
 }
 .bg-cover {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(30px);
+  background-color: rgba(0, 0, 0, 0.7);
+  /* backdrop-filter: blur(0px); */
 }
 /* 动画 */
 @keyframes turnAround {

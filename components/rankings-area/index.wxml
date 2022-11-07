@@ -11,12 +11,13 @@
         <!-- songs -->
         <block wx:for="{{item.songList}}" wx:for-item="song" wx:key="id">
           <view class="song">
-            <text>{{index +1 }}. {{song.name}}</text><text class="artist"> - {{song.ar[0].name}}</text>
+            <text class="designation">{{index +1 }}. {{song.name}}</text>
+            <text class="artist"> - {{song.ar[0].name}}</text>
           </view>
         </block>
       </view>
       <view class="right">
-        <image src="{{item.rankingCoverImg}}" class="image" mode="widthFix" alt="" />
+        <image src="{{item.rankingCoverImg}}" class="image" mode="widthFix"/>
         <view class="playCount">{{format.formatCount(item.playCount)}}</view>
       </view>
     </view>

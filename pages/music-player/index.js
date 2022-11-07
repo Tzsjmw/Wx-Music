@@ -31,6 +31,7 @@ Page({
     currentIndexOfLyric1: 0, // 在制作歌词页时遇到滑动歌词与歌词自动滚动冲突问题；两个index，一个控制歌词高亮，一个控制歌词滚动
     lyricsPageLyricItemHeight: 0, // 歌词页每句歌词的高度
     isLyricDragging: false, // 歌词是否在被用户滑动
+    playty:"../../assets/images/player/play-ty.png"
   },
   /**
    * 生命周期函数--监听页面加载
