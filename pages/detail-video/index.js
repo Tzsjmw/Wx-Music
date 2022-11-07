@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    mvURLInfo:{},
-    mvDetail:{},
-    relatedVideos:[]
+    mvURLInfo:{},   // 视频播放地址
+    mvDetail:{},   // 获取mv的信息
+    relatedVideos:[]  //推荐视频 
   },
 
   /**

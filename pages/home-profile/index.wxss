@@ -1,6 +1,6 @@
 /* pages/home-profile/index.wxss */
 page {
-  padding: 0 0 88rpx;
+  /* padding: 0 0 88rpx; */
 }
 .home-profile {
   width: 100%;
@@ -45,6 +45,13 @@ page {
   background-color: #2aca83;
   border-radius: 15rpx;
 }
+/* 文字自适应View 并居中 */
+.loginBtn{
+  font-size:calc(80vw * 100 / 1920); 
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 /* 图标区域 */
 .home-profile .another {
   display: flex;
@@ -74,7 +81,7 @@ page {
   font-size: 16rpx;
 }
 .desc {
-  margin-top: 15px;
+  margin: 3% 0px 3% 0;
 }
 
 

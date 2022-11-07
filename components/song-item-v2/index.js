@@ -51,7 +51,6 @@ Component({
         url: `/pages/detail-video/index?id=${
           this.data.song[this.properties._mvid]
         }`,
-        
       });
       // 查看是否正在播放歌曲
       if (playerStore.state.songPlayState) {
