@@ -64,7 +64,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+  },
   onAvatarClick: function (event) {
     console.log("event",event);
     // 获取用户信息

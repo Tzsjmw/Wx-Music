@@ -15,6 +15,9 @@ App({
     statusBarHeight: 0,
   },
   onLaunch: async function () {
+  //   wx.setNavigationBarTitle({
+  //     title: '标题栏'
+  // });
     // 1.请求设备信息
     const info = wx.getSystemInfoSync();
     // 拿到屏幕宽高在全局中进行保存

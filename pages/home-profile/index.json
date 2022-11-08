@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "play-bar": "/components/play-bar/index"
-  }
+  },
+  "navigationBarTitleText":"personal center"
+
 }

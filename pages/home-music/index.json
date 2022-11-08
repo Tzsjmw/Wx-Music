@@ -7,5 +7,6 @@
     "rankings-area": "/components/rankings-area/index",
     "play-bar": "/components/play-bar/index",
     "playlist-popup": "/components/playlist-popup/index"
-  }
+  },
+  "navigationBarTitleText":"listen to music"
 }

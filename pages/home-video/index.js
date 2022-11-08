@@ -6,14 +6,17 @@ Page({
     /*** 页面的初始数据*/
     data: {
         topMVs: [],
-        hasMore: true
+        hasMore: true,
+        navTitle: { // 导航标题 可以为空
+          type: String,
+          value: ''
+        },
     },
 
     /*** 生命周期函数--监听页面加载
      * aysnc await
      */
     onLoad: async function(options) {
-
         this.getTopMVData(0)
     },
 

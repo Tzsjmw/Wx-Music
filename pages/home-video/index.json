@@ -4,5 +4,6 @@
   "usingComponents": {
     "video-item-v1":"/components/video-item-v1/index",
     "play-bar": "/components/play-bar/index"
-  }
+  } ,
+  "navigationBarTitleText":"video player"
 }
